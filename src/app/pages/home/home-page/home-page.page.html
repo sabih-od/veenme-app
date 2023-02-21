@@ -1,0 +1,37 @@
+<header [title]="'Home'"></header>
+
+<ion-content>
+  <div *ngIf="!isLoading">
+    <home-page-post *ngFor="let item of list" [item]="item" (opengallery)="openGallery($event)"
+      (itemLikeToggled)="itemLikeToggled(item)" (openComments)="openComments(item)"
+      (openUserProfile)="openUserProfile(item)" (openPlace)="openPlace(item)">
+    </home-page-post>
+
+    <!-- <ion-list>
+
+      <ion-item >
+
+      </ion-item>
+
+    </ion-list> -->
+  </div>
+
+  <div class="spinner" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="chevron-up-outline"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-list side="top">
+      <ion-fab-button (click)="mightFollow()">
+        <ion-icon name="people-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="peopleVeening()">
+        <ion-icon name="paper-plane-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

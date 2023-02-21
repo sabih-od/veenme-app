@@ -1,0 +1,25 @@
+<ion-tabs #tabs (ionTabsDidChange)="setCurrentTab()">
+  <ion-tab-bar slot="bottom">
+
+    <ion-tab-button tab="restaurants">
+      <ion-icon name="bed-outline"></ion-icon>
+      <ion-label>Restaurants</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="landmarks">
+      <ion-icon name="navigate-circle-outline"></ion-icon>
+      <ion-label>Landmarks</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="historical">
+      <ion-icon name="chatbubbles"></ion-icon>
+      <ion-label>Historical</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="nature">
+      <ion-icon name="images"></ion-icon>
+      <ion-label>Nature</ion-label>
+    </ion-tab-button>
+
+  </ion-tab-bar>
+</ion-tabs>

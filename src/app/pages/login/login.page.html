@@ -1,0 +1,44 @@
+<ion-content class="signup">
+
+  <img class="background-image" src="assets/signup-banner.jpeg">
+  <ion-grid class="ion-margin-top">
+    <ion-row>
+      <ion-col size="12">
+        <ion-button (click)="modals.dismiss({data: 'A'})">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="center-align">
+    <ion-row class="row signup-top">
+      <ion-col class="col-md-12">
+        <a href="/"><img src="assets/images/signup-logo.png" alt=""></a>
+      </ion-col>
+    </ion-row>
+    <div class="main-head">
+      <h6>Join us today</h6>
+      <h1>Veen Away!</h1>
+    </div>
+    <p class="desc">Sign up now and be a part of the World’s <br> fastest growing online community.</p>
+    <div class="inner-form-box">
+      <form [formGroup]="aForm">
+        <div class="form-group">
+          <ion-input style="background-color: aliceblue;" type="text" formControlName="email" placeholder="Email">
+          </ion-input>
+        </div>
+        <div class="form-group">
+          <ion-input style="background-color: aliceblue;" type="password" formControlName="password"
+            placeholder="Password"></ion-input>
+        </div>
+        <ion-button class="btn-1" expand="block" color="primary" (click)="login()">Log In</ion-button>
+        <ion-button class="btn-2" expand="block" color="primary" (click)="openSignup()">SignUp</ion-button>
+        <!-- <button disabled="" class="btn btn-block submit-btn">SignUp</button> -->
+      </form>
+
+    </div>
+  </div>
+
+  <p class="copywrite">Copyright © 2020. VeenMe. All Right Reserved</p>
+
+</ion-content>

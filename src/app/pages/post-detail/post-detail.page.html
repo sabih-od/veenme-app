@@ -1,0 +1,23 @@
+<header [title]="'Post Details'" [back]="true"></header>
+
+<ion-content>
+  <div *ngIf="!isLoading">
+    <home-page-post [item]="post" (opengallery)="openGallery($event)" (itemLikeToggled)="itemLikeToggled(item)"
+      (openComments)="openComments(item)" (openUserProfile)="openUserProfile(item)">
+    </home-page-post>
+
+    <comments [item]="post"></comments>
+
+    <!-- <ion-list>
+
+      <ion-item >
+
+      </ion-item>
+
+    </ion-list> -->
+  </div>
+
+  <div class="spinner" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+</ion-content>

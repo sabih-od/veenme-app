@@ -1,0 +1,60 @@
+<header [title]="'Notifications'"></header>
+
+<ion-content>
+  <div class="spinner" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <!-- <ion-list *ngIf="!notifications">
+     -->
+
+  <!-- <ion-item *ngFor="let item of notifications">
+      <ion-avatar slot="start">
+        <img [src]="item.user.profile_image">
+        <ion-icon class="icon" style=" position: absolute; left: '11%'; bottom: '10%'; color: var(--ion-color-primary);"
+          [name]="item.notification_type == 'comment' ? 'chatbubble-ellipses' : item.notification_type == 'reply' ? 'arrow-undo' : 'heart'">
+        </ion-icon>
+      </ion-avatar>
+      <ion-label>
+        {{item.content}}
+        <p>{{item.created | date:'medium'}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list> -->
+
+  <div *ngIf="!isLoading">
+    <ion-item *ngIf="!notifications">
+      <ion-label>No Notifications Yet</ion-label>
+    </ion-item>
+
+    <ion-list *ngIf="notifications">
+      <ion-item *ngFor="let item of notifications">
+        <ion-avatar (click)="openUserProfile(item)" slot="start">
+          <ion-img [src]="item?.user?.profile_image"></ion-img>
+        </ion-avatar>
+
+        <ion-text (click)="showPost(item.post_detail)">
+          <p *ngIf="item.notification_type == 'like'">
+            {{item?.user?.fname + ' ' + 'Liked Your Comment' }}
+          </p>
+
+          <ion-text *ngIf="item.notification_type == 'post'">
+            <p> {{item?.user?.fname + ' ' + 'added post' }}</p>
+            <p style="color: var(--ion-color-primary); margin-top:-15px">{{item?.text }}</p>
+
+          </ion-text>
+
+          <p *ngIf="item.notification_type == 'comment'">
+            {{item?.user?.fname + ' ' + 'added comment' }}
+            <span class="highlighted"> {{item?.text}} </span>
+          </p>
+
+          <p *ngIf="item.notification_type == 'reply'">
+            {{item?.user?.fname + ' ' + 'added reply' }}
+            <span class="highlighted"> {{item?.text}} </span>
+          </p>
+        </ion-text>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

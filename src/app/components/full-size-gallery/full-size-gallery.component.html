@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="end">
+      <button style="background: inherit;" (click)="close()">
+        <ion-icon style="font-size: 35px;" name="close-outline" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slides [options]="slideOpts">
+    <ion-slide *ngFor="let img of images">
+      <img [src]="img.filepath">
+    </ion-slide>
+  </ion-slides>
+</ion-content>

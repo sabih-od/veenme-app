@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="!isLoading">
+    <ion-grid *ngFor="let item of list">
+      <ion-row>
+        <ion-col size="12">
+          <comment [item]="item"></comment>
+        </ion-col>
+
+        <ion-col size="12" style="margin-left: 20px" *ngFor="let reply of item.comments">
+          <ion-item>
+            <ion-avatar>
+              <img style="margin: 3px" [src]="reply.user_profile_image" />
+            </ion-avatar>
+            <ion-label style="margin-left: 15px">
+              <h2>{{ reply.user_name }}</h2>
+              <p>{{ reply.text }}</p>
+            </ion-label>
+            <ion-label slot="end">
+              <ion-buttons>
+                <ion-button slot="end" (click)="likeUnlikeComment(reply, item.post_id)">
+                  <ion-icon [name]="reply.is_like ? 'heart' : 'heart-outline'"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+
+              <!-- <ion-icon (click)="likeUnlikeComment(item)" [name]="item.is_like ? 'heart' : 'heart-outline'"></ion-icon> -->
+              <p style="text-align: center">{{ reply.like_count }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row *ngIf="item.showCommentBox">
+        <ion-col size="12">
+          <ion-item class="comment-input" style="margin-left: 15%">
+            <ion-input type="text" [(ngModel)]="replyComment" placeholder="Reply on comment..."></ion-input>
+            <ion-button size="small" slot="end" fill="secondary" (click)="addComment(item.id)">
+              <ion-icon color="secondary" name="send"></ion-icon>
+            </ion-button>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-list>
+  <div class="spinner" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-item class="comment-input">
+    <ion-input type="text" [(ngModel)]="comment" placeholder="Type Comment..."></ion-input>
+    <ion-button size="small" slot="end" fill="secondary" (click)="addComment()">
+      <ion-icon color="secondary" name="send"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-footer>

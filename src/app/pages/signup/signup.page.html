@@ -1,0 +1,95 @@
+<ion-content>
+
+  <img class="background-image" src="assets/signup-banner.jpeg">
+
+  <ion-grid class="ion-margin-top">
+    <ion-row>
+      <ion-col size="12">
+        <ion-button (click)="modals.dismiss()">
+          <ion-icon name="chevron-back-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <div class="signup-middle-right center-align">
+    <div class="sign-up-form-box">
+      <h1>Sign Up today!</h1>
+      <h2 style="color: white">&amp; Start Veening Now</h2>
+      <div class="inner-form-box">
+        <form [formGroup]="aForm" autocomplete="off">
+          <div class="form-group">
+            <ion-input formControlName="fname" style="background-color: aliceblue;" type="text" name="fname" id="fname"
+              class="form-control" placeholder="First Name*" value="">
+            </ion-input>
+          </div>
+          <div class="form-group">
+            <ion-input formControlName="lname" style="background-color: aliceblue;" type="text" name="lname" id="lname"
+              class="form-control" placeholder="Surname*" value="">
+            </ion-input>
+          </div>
+          <div class="form-group">
+            <ion-input formControlName="email" style="background-color: aliceblue;" type="email" name="email" id="email"
+              class="form-control" placeholder="Email*" value=""></ion-input>
+          </div>
+          <div class="form-group">
+            <ion-input formControlName="password" style="background-color: aliceblue;" type="password" name="password"
+              id="password" class="form-control" placeholder="Password*" value=""></ion-input>
+          </div>
+          <div class="form-group">
+            <ion-datetime formControlName="dob" style="background-color: aliceblue;" value="2019-10-01T15:43:40.394Z"
+              display-timezone="utc" placeholder="Date Of Birth">
+            </ion-datetime>
+          </div>
+          <div class="form-group">
+            <ion-grid class="ion-no-padding">
+              <ion-row class="ion-no-padding">
+                <ion-col class="ion-no-padding">
+                  <ion-button shape="round" expand="block" (click)="signupObj.gender = 'm'">
+                    <ion-icon slot="start"
+                      [name]="signupObj.gender == 'm' ? 'radio-button-on-outline' : 'radio-button-off-outline' ">
+                    </ion-icon>
+                    <ion-label>Male</ion-label>
+                  </ion-button>
+                </ion-col>
+                <ion-col>
+                  <ion-button shape="round" expand="block" (click)="signupObj.gender = 'f'">
+                    <ion-icon slot="start"
+                      [name]="signupObj.gender == 'f' ? 'radio-button-on-outline' : 'radio-button-off-outline' ">
+                    </ion-icon>
+                    <ion-label>Female</ion-label>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </div>
+
+          <div class="form-group">
+            <ion-input formControlName="phone" style="background-color: aliceblue;" type="text" name="phone" id="phone"
+              class="form-control" placeholder="(111) 111-1111" (input)="onTelephoneChange($event)"></ion-input>
+          </div>
+
+          <!-- <div class=" react-tel-input">
+            <div class="special-label">Phone</div><input class=" form-control" placeholder="Phone* (+1 (111) 111-1111)"
+              type="tel" name="phone" required="" value="">
+            <div class=" flag-dropdown">
+              <div class="selected-flag" title="" tabindex="0" role="button" aria-haspopup="listbox">
+                <div class="flag 0">
+                  <div class="arrow"></div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+          <div class="form-group">
+            <ion-button expand="block" shape="round" [disabled]="loading" (click)="singUp()">SIGN UP
+            </ion-button>
+          </div>
+
+        </form>
+        <p class="copywrite">* By clicking <b>"sign up"</b> you are agreeing to the<ion-text color="primary"> Terms of
+            Service </ion-text>
+          and <ion-text color="primary">Privacy Policy</ion-text>
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>

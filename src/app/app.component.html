@@ -1,0 +1,64 @@
+<ion-menu menuId="main" contentId="main">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Veenme</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list class="menu-list">
+      <ion-item (click)="goTo('home/veenme')">
+        <ion-icon name="golf-outline"></ion-icon>
+        <ion-title> Veen Me </ion-title>
+      </ion-item>
+      <ion-item (click)="goTo('home')">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-title> Home </ion-title>
+      </ion-item>
+      <ion-item (click)="goTo('explore')">
+        <ion-icon name="location-outline"></ion-icon>
+        <ion-title> Explore </ion-title>
+      </ion-item>
+      <ion-item (click)="goTo('notifications')">
+        <ion-badge class="notification-badge">{{ notification_count }}</ion-badge>
+        <ion-icon name="notifications-outline"> </ion-icon>
+        <ion-title> Notifications </ion-title>
+      </ion-item>
+      <ion-item (click)="goTo('messages')">
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-title> Messages </ion-title>
+      </ion-item>
+
+      <ion-item (click)="goTo('profile')">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-title> Profile </ion-title>
+      </ion-item>
+
+      <ion-item (click)="goTo('privacy-policy')">
+        <ion-icon name="pricetag-outline"></ion-icon>
+        <ion-title> Privacy Policy </ion-title>
+      </ion-item>
+
+      <ion-item (click)="goTo('terms-conditions')">
+        <ion-icon name="list-outline"></ion-icon>
+        <ion-title> Terms & Conditions </ion-title>
+      </ion-item>
+
+      <!-- <ion-item (click)="goTo('change-password')">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-title>
+          Change Password
+        </ion-title>
+      </ion-item> -->
+
+      <ion-item (click)="logOut()">
+        <ion-icon name="log-out-outline"></ion-icon>
+        <ion-title> Log out </ion-title>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-app id="main">
+  <ion-router-outlet></ion-router-outlet>
+</ion-app>

@@ -1,0 +1,33 @@
+.main-div {
+  transform: translateY(-3.5rem);
+  height: 20vh;
+}
+
+.avatar-img {
+  border: 3px solid var(--ion-color-primary);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 65px;
+  margin-bottom: 10px;
+}
+
+#map {
+  height: 30vh;
+}
+
+.floating-div {
+  width: 25%;
+  margin: 0 auto;
+}
+
+.block-heading {
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 10px 0px;
+}
+
+.text-box-style {
+  border: 1px solid #000;
+  border-radius: 7px;
+  padding: 0px 5px;
+}

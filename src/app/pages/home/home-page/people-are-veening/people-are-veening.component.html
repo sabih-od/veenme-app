@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title slot="start"> People Are Veening </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <div class="spinner" *ngIf="isLoading">
+    <ion-spinner color="light"></ion-spinner>
+  </div>
+
+  <ion-list class="list-bg" *ngIf="!isLoading">
+    <ion-item color="primary" *ngFor="let item of people_are_veening">
+      <ion-avatar slot="start">
+        <ion-img [src]="item.image"></ion-img>
+      </ion-avatar>
+      <ion-text class="ion-text-wrap ion-margin-top">
+        <p class="ion-no-margin" style="color: #000">
+          {{ item.location }}
+        </p>
+        <p class="ion-no-margin ion-margin-bottom" style="color: #fff">
+          {{ item.veens + " Veens" }}
+        </p>
+      </ion-text>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,218 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Veen Now</ion-title>
+
+    <!-- <ion-buttons slot="end">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon name="cloud-upload"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="chatbox"></ion-icon>
+        Comment
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-img src="https://api.veenme.com/uploads/profile-images/default.jpeg"></ion-img>
+        </ion-avatar>
+
+        <ion-textarea class="textarea" rows="6" [(ngModel)]="comment"
+          placeholder="Click here to Veen your current location and update your status"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="lock-closed"></ion-icon>
+        Privacy
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item (click)="visibilitySelected('public')">
+          <ion-avatar slot="start">
+            <ion-icon style="font-size: 30px" name="globe-outline"></ion-icon>
+          </ion-avatar>
+          <ion-text> Public </ion-text>
+          <ion-icon slot="end" [name]="
+              visibility === 'public'
+                ? 'checkmark-circle'
+                : 'checkmark-circle-outline'
+            ">
+          </ion-icon>
+        </ion-item>
+
+        <ion-item (click)="visibilitySelected('private')">
+          <ion-avatar slot="start">
+            <ion-icon style="font-size: 30px" name="lock-closed-outline"></ion-icon>
+          </ion-avatar>
+          <ion-text> Private </ion-text>
+          <ion-icon slot="end" [name]="
+            visibility === 'private'
+                ? 'checkmark-circle'
+                : 'checkmark-circle-outline'
+            ">
+          </ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="apps"></ion-icon>
+        Category
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item (click)="categorySelected(1)">
+          <ion-avatar slot="start">
+            <ion-img src="https://dev-veenme.thesupportonline.net/assets/images/Restauraunts.png"></ion-img>
+          </ion-avatar>
+          <ion-text> Restaurants </ion-text>
+          <ion-icon slot="end" [name]="
+              selectedCategoryId === 1
+                ? 'checkmark-circle'
+                : 'checkmark-circle-outline'
+            ">
+          </ion-icon>
+        </ion-item>
+
+        <ion-item (click)="categorySelected(2)">
+          <ion-avatar slot="start">
+            <ion-img src="https://dev-veenme.thesupportonline.net/assets/images/Landmarks.png"></ion-img>
+          </ion-avatar>
+          <ion-text> LandMarks </ion-text>
+          <ion-icon slot="end" [name]="
+              selectedCategoryId === 2
+                ? 'checkmark-circle'
+                : 'checkmark-circle-outline'
+            ">
+          </ion-icon>
+        </ion-item>
+
+        <ion-item (click)="categorySelected(3)">
+          <ion-avatar slot="start">
+            <ion-img src="https://dev-veenme.thesupportonline.net/assets/images/Historical.png"></ion-img>
+          </ion-avatar>
+          <ion-text> Historical </ion-text>
+          <ion-icon slot="end" [name]="
+              selectedCategoryId === 3
+                ? 'checkmark-circle'
+                : 'checkmark-circle-outline'
+            ">
+          </ion-icon>
+        </ion-item>
+
+        <ion-item (click)="categorySelected(4)">
+          <ion-avatar slot="start">
+            <ion-img src="https://dev-veenme.thesupportonline.net/assets/images/Nature.png"></ion-img>
+          </ion-avatar>
+          <ion-text> Nature </ion-text>
+          <ion-icon slot="end" [name]="
+              selectedCategoryId === 4
+                ? 'checkmark-circle'
+                : 'checkmark-circle-outline'
+            ">
+          </ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="accessibility"></ion-icon>
+        Activities
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let activity of activities" (click)="activitySelected(activity.id)">
+          <ion-avatar slot="start">
+            <ion-img [src]="'https://dev-veenme.thesupportonline.net/' + activity.icon"></ion-img>
+          </ion-avatar>
+          <ion-text>
+            {{ activity.title }}
+          </ion-text>
+          <ion-icon slot="end" [name]="
+              activity.id === activityId
+                ? 'checkmark-circle'
+                : 'checkmark-circle-outline'
+            ">
+          </ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title>
+        <ion-icon name="image"></ion-icon>
+        Upload Photo
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col *ngFor="let image of images">
+          <ion-img class="imgs" [src]="image['filepath']"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row [hidden]="images.length > 0">
+        <ion-col size="12">
+          <ion-img style="height: 75px"
+            src="https://dev-veenme.thesupportonline.net/static/media/UploadIcon.1cedb6e9.svg"></ion-img>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12" class="ion-text-center">
+          Max file size: 20mb, accepted jpeg | gif | png
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="12">
+          <ion-button color="tertiary" shape="round" expand="block" (click)="doGetPicture()">
+            Choose Images
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-button class="ion-margin" color="tertiary" shape="round" expand="block" (click)="veenNow()">
+          Veen Now
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

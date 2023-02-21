@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Veenme</string>
+    <string name="title_activity_main">Veenme</string>
+    <string name="package_name">com.olivia.veenme</string>
+    <string name="custom_url_scheme">com.olivia.veenme</string>
+    <string name="facebook_app_id">439197831096384</string>
+    <string name="fb_app_id">439197831096384</string>
+    <string name="facebook_client_token">5464b5362d7ca05da1ebd16cc667fabd</string>
+
+    <string name="fb_app_name">VeenMe</string>
+    <string name="fb_login_protocol_scheme">fb439197831096384</string>
+  <bool name="fb_auto_log_app_events_enabled">false</bool>
+  <bool name="fb_advertiser_id_collection_enabled">false</bool>
+</resources>

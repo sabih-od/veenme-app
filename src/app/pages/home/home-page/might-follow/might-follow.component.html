@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title slot="start"> You Might Want To Follow </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="primary">
+    <ion-searchbar animated [(ngModel)]="searchText" (ngModelChange)="getData()"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="primary">
+  <ion-list class="ion-padding" *ngIf="!isLoading">
+    <ion-item *ngFor="let item of might_follow_list">
+      <ion-avatar (click)="openUserProfile(item)" slot="start">
+        <ion-img [src]="item.profile_image"></ion-img>
+      </ion-avatar>
+      <ion-text>
+        {{ item.name }}
+      </ion-text>
+
+      <ion-button (click)="followUser(item)" color="primary" slot="end">
+        Follow
+      </ion-button>
+    </ion-item>
+
+    <ion-button [hidden]="searchText != ''" expand="block" shape="round" fill="clear" (click)="loadMoreMightFollow()">
+      <span *ngIf="!might_follow_loading"> See More </span>
+      <ion-spinner color="primary" *ngIf="might_follow_loading"> </ion-spinner>
+    </ion-button>
+  </ion-list>
+
+  <div class="spinner" *ngIf="isLoading">
+    <ion-spinner color="dark"></ion-spinner>
+  </div>
+</ion-content>

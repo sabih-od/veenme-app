@@ -1,0 +1,38 @@
+<!-- <div *ngFor="let item of list"> -->
+<ion-item lines="none">
+  <ion-avatar (click)="openUserProfile?.emit()" class="ion-margin-end">
+    <img [src]="item?.user_profile_image" />
+  </ion-avatar>
+  <ion-label class="ion-text-wrap">
+    <h2>{{ item?.full_name }}</h2>
+    <p>{{ item?.body }}</p>
+    <p style="color: var(--ion-color-primary)" (click)="openPlace?.emit()">
+      {{ item?.activity ?? item?.activity_title }} : {{ item?.location }}
+    </p>
+  </ion-label>
+</ion-item>
+
+<div
+  (click)="
+    item?.files?.length > 3 ? opengallery?.emit(item?.files) : log(item?.files)
+  "
+  *ngIf="item?.files && item?.files?.length > 0"
+>
+  <image-collage [images]="item?.files"> </image-collage>
+</div>
+<ion-grid class="ion-margin-start section-box">
+  <ion-row>
+    <ion-col size="2" (click)="itemLikeToggled?.emit()">
+      <ion-icon [name]="item?.is_like ? 'heart' : 'heart-outline'"></ion-icon>
+      <p>{{ item?.like_count }}</p>
+    </ion-col>
+    <ion-col size="2" (click)="openComments?.emit()">
+      <ion-icon name="chatbubble-outline"></ion-icon>
+      <p>{{ item?.comment_count }}</p>
+    </ion-col>
+    <ion-col>
+      <p>{{ item?.created | date: "shortTime" }}</p>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<!-- </div> -->

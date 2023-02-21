@@ -1,0 +1,20 @@
+<ion-card>
+  <ion-img *ngIf="item.files.length > 0" [src]="item.files[0].filepath"></ion-img>
+
+
+  <ion-card-header>
+    <ion-card-subtitle>
+      {{item.created}}
+    </ion-card-subtitle>
+
+    <ion-card-title>
+      {{item.location}}
+    </ion-card-title>
+
+  </ion-card-header>
+
+
+  <ion-card-content>
+    {{item.body}}
+  </ion-card-content>
+</ion-card>

@@ -1,0 +1,26 @@
+<header [title]="'Messages'"></header>
+
+<ion-content>
+  <ion-searchbar></ion-searchbar>
+  <ion-list *ngIf="!list">
+    <ion-item>
+      <ion-label class="ion-text-center">No Messages Yet</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row *ngFor="let item of list" (click)="showMessages(item.user_id)">
+      <ion-col size="2" class="message">
+        <img class="img" src="../../../assets/bike.jpg" />
+      </ion-col>
+      <ion-col size="7">
+        <h3 class="name">{{item.name}}</h3>
+      </ion-col>
+      <ion-col size="1">
+        <div class="dot"></div>
+      </ion-col>
+      <ion-col size="2">
+        <ion-icon class="icon" name="chatbubble-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

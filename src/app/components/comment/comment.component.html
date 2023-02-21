@@ -1,0 +1,22 @@
+<ion-item>
+  <ion-avatar>
+    <img style="margin: 3px" [src]="item.user_profile_image" />
+  </ion-avatar>
+  <ion-label style="margin-left: 15px">
+    <h2>{{ item.user_name }}</h2>
+    <p>{{ item.text }}</p>
+  </ion-label>
+  <ion-label slot="end">
+    <ion-buttons>
+      <ion-button (click)="item.showCommentBox = true">
+        <ion-icon name="arrow-undo-outline"></ion-icon>
+      </ion-button>
+      <ion-button slot="end" (click)="likeUnlikeComment(item, item.post_id)">
+        <ion-icon [name]="item.is_like ? 'heart' : 'heart-outline'"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <!-- <ion-icon (click)="likeUnlikeComment(item)" [name]="item.is_like ? 'heart' : 'heart-outline'"></ion-icon> -->
+    <p style="text-align: end">{{ item.like_count }}</p>
+  </ion-label>
+</ion-item>

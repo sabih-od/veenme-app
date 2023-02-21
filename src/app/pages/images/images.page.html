@@ -1,0 +1,18 @@
+<header [title]="'Images'" [back]="true"></header>
+
+<ion-content>
+  <!-- <ion-grid>
+    <ion-row>
+      <ion-col size="12" *ngFor="let item of images" class="ion-text-center">
+        <img [src]="item.filepath" />
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+  <ion-slides pager="true">
+    <ion-slide *ngFor="let item of images" class="ion-text-center">
+      <img [src]="item.filepath" style="width: 100%; height: 500px; background-color: black;" />
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

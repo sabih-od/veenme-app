@@ -1,0 +1,41 @@
+<ion-row *ngIf="images.length > 2">
+  <ion-col size="7">
+    <img class="img-one" [src]="images[0]?.filepath">
+  </ion-col>
+
+  <ion-col size="5">
+    <img class="img-two" [src]="images[1]?.filepath">
+    <img class="img-two" [src]="images[2]?.filepath">
+    <div *ngIf="images.length > 3" style="
+ 
+ position: absolute;
+    background-color: rgba(0,0,0,0.4);
+    height: 46%;
+    width: 96%;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 4vh;">
+      <span>+{{images.length - 3}}</span>
+    </div>
+  </ion-col>
+</ion-row>
+
+<ion-row *ngIf="images.length == 2">
+  <ion-col size="6">
+    <img class="double-img" [src]="images[0]?.filepath">
+  </ion-col>
+
+  <ion-col size="6">
+    <img class="double-img" [src]="images[1]?.filepath">
+  </ion-col>
+</ion-row>
+
+
+<ion-row *ngIf="images.length == 1">
+  <ion-col size="12">
+    <img class="single-img" [src]="images[0]?.filepath">
+  </ion-col>
+</ion-row>

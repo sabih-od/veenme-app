@@ -1,0 +1,21 @@
+<header [title]="'Places'"></header>
+
+<ion-content>
+
+  <div *ngIf="!isLoading">
+    <ion-card *ngFor="let item of list" [hidden]="!item.image[0]" (click)="openDetails(item)">
+      <ion-img [src]="item.image[0]"></ion-img>
+
+      <div class="boxed-images">
+        <ion-badge class="out-badge">{{item.veens}} veens</ion-badge>
+        <img class="image-boxes" *ngFor="let u of item.user" [src]="u.profile_image" />
+      </div>
+
+    </ion-card>
+  </div>
+
+
+  <div class="spinner" *ngIf="isLoading">
+    <ion-spinner></ion-spinner>
+  </div>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button fill="clear" (click)="close()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add Review</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-gird>
+    <ion-row>
+      <ion-col size="12">
+        <ion-item lines="none">
+          <ion-label class="ion-text-center">
+            How do you rate this place?
+          </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col style="margin-left: 10px">
+        <div class="ion-text-center">
+          <ion-icon
+            [name]="rating <= n ? 'star-outline' : 'star'"
+            [color]="rating <= n ? 'tertiary' : ''"
+            *ngFor="let n of [1, 2, 3, 4, 5]"
+            style="font-size: 30px; margin-left: 5px"
+            (click)="changeRating(n)"
+          ></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-textarea
+          style="padding: 10px"
+          placeholder="Add review here..."
+          [(ngModel)]="review"
+        >
+        </ion-textarea>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="postReview()"> Submit </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-gird>
+</ion-content>

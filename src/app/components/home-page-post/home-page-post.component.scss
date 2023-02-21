@@ -1,0 +1,23 @@
+.section-box {
+    ion-icon{
+      font-size: 20px;
+    }
+  
+    ion-col{
+      position: relative;
+    }
+  
+    p{
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-60%);
+      margin: 0;
+    }
+  }
+
+  .imgs {
+    height: 100%;
+    width: 100px;
+    display: inline-block;
+}

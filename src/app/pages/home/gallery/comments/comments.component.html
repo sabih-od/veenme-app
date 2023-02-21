@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-img [src]="item.filepath"></ion-img>
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let item of list">
+      <ion-avatar>
+        <img style="margin: 3px" [src]="item.user_profile_image" />
+      </ion-avatar>
+      <ion-label class="ion-margin-start">
+        <p>
+          <b>{{ item.user_name }} </b>
+        </p>
+        <p>{{ item.text }}</p>
+      </ion-label>
+      <ion-icon
+        (click)="likeUnlikeComment(item)"
+        slot="end"
+        [name]="item.is_like ? 'thumbs-up' : 'thumbs-up-outline'"
+      >
+      </ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-card
+    style="
+      position: absolute;
+      bottom: -3%;
+      width: 80%;
+      max-height: 50%;
+      overflow-y: scroll;
+    "
+    *ngIf="canMention"
+  >
+    <ion-card-header class="ion-no-margin ion-no-padding">
+      <ion-item>
+        <ion-label>
+          <b>Select</b>
+        </ion-label>
+
+        <ion-icon
+          slot="end"
+          name="close-circle-outline"
+          (click)="canMention = false"
+        ></ion-icon>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-item *ngFor="let item of items" (click)="onMentioned(item)">
+      <ion-label>{{ item }}</ion-label>
+    </ion-item>
+  </ion-card>
+</ion-content>
+<ion-footer>
+  <ion-item class="comment-input">
+    <ion-input
+      type="text"
+      [(ngModel)]="comment"
+      (ionChange)="onChanged($event)"
+    >
+    </ion-input>
+
+    <ion-button size="small" slot="end" fill="secondary" (click)="addComment()"
+      >Send</ion-button
+    >
+  </ion-item>
+</ion-footer>

@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()">
+        <ion-icon style="font-size: 1.75rem" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Veen Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row style="margin-bottom: 10%">
+      <ion-col style="height: 100px" size="4">
+        <img
+          class="img"
+          [src]="item.user_profile_image"
+          onerror="this.onerror =null; this.src='assets/default.jpeg'"
+        />
+      </ion-col>
+      <ion-col size="8">
+        <h2 style="margin-top: 45px">
+          {{ item.user_fname }} {{ item.user_lname }}
+        </h2>
+      </ion-col>
+    </ion-row>
+    <ion-row style="border-bottom: 1px solid lightgray">
+      <ion-col size="1">
+        <ion-icon
+          style="margin-top: 18px; color: gray; font-size: 32px"
+          name="location-outline"
+        ></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <p class="detail">
+          {{ item.location }}
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h4 style="margin-bottom: 10px">{{ item.activity_title }}</h4>
+      </ion-col>
+    </ion-row>
+    <image-collage [images]="item?.files"> </image-collage>
+  </ion-grid>
+</ion-content>

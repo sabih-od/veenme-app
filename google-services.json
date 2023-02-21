@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "205764117327",
+    "project_id": "veenme-9d44c",
+    "storage_bucket": "veenme-9d44c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:205764117327:android:61338e06cb1bf2d55bfb3a",
+        "android_client_info": {
+          "package_name": "com.olivia.veenme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "205764117327-ngvkbg4lsfg68k2i1qgbr19fjiijgm20.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxg7u6klPkDwVv9wyRpEVd8mdqPbJgDXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "205764117327-ngvkbg4lsfg68k2i1qgbr19fjiijgm20.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

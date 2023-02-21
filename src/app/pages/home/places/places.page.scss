@@ -1,0 +1,21 @@
+img.image-boxes {
+  width: 50px;
+  height: 50px;
+  float: left;
+  margin-right: 5px;
+  border-radius: 50%;
+}
+
+.boxed-images {
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
+  padding: 10px;
+}
+
+.out-badge{
+  position: absolute;
+    top: -30px;
+}

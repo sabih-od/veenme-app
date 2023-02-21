@@ -1,0 +1,12 @@
+<header [title]="'Restaurants'"></header>
+
+<ion-content>
+
+    <div class="spinner" *ngIf="isLoading">
+        <ion-spinner></ion-spinner>
+    </div>
+
+    <div *ngIf="!isLoading">
+        <explore-item *ngFor="let item of restaurants" [item]="item"></explore-item>
+    </div>
+</ion-content>
