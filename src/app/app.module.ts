@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
+
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
@@ -45,6 +47,7 @@ import { File } from '@awesome-cordova-plugins/file/ngx';
     FormBuilder,
     UtilityService,
     WebView,
+    HTTP,
     InAppBrowser,
     UtilityService,
     Geolocation,

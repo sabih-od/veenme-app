@@ -1,15 +1,14 @@
+// import { AccessToken } from './../../../../node_modules/@rdlabo/capacitor-facebook-login/dist/esm/definitions.d';
 import { Component, Injector } from '@angular/core';
 import { Browser } from '@capacitor/browser';
 import { StringsService } from 'src/app/services/basic/strings.service';
 import { BasePage } from '../base-page/base-page';
 import { LoginPage } from '../login/login.page';
 import { SignupPage } from '../signup/signup.page';
-import {
-  FacebookLogin,
-  FacebookLoginResponse,
-} from '@capacitor-community/facebook-login';
+import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 
 import { GooglePlus } from '@awesome-cordova-plugins/google-plus/ngx';
+
 
 @Component({
   selector: 'app-register',
@@ -21,11 +20,13 @@ export class RegisterPage extends BasePage {
 
   constructor(
     injector: Injector,
+    private http: HTTP,
     private strings: StringsService,
     private googlePlus: GooglePlus
   ) {
     super(injector);
   }
+
 
   async loginWithGoogle() {
     console.log('loginWithGoogle');
@@ -46,62 +47,6 @@ export class RegisterPage extends BasePage {
         };
 
         this.signUpwithSocial(res, 'google');
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  }
-
-  async loginWithFacebook() {
-    try {
-      const FACEBOOK_PERMISSIONS = [
-        'email',
-        'user_birthday',
-        'user_photos',
-        'user_gender',
-      ];
-
-      var accessToken = null;
-      var result = await FacebookLogin.getCurrentAccessToken();
-
-      console.log(result);
-
-      if (!result || !result.accessToken) {
-        result = await FacebookLogin.login({
-          permissions: FACEBOOK_PERMISSIONS,
-        });
-
-        if (result.accessToken) {
-          // Login successful.
-          console.log(`Facebook access token is ${result.accessToken.token}`);
-
-          accessToken = result.accessToken;
-        }
-      } else {
-        accessToken = result.accessToken;
-      }
-
-      const resResult = await FacebookLogin.getProfile({
-        fields: ['id', 'name', 'email', 'gender'],
-      });
-
-      console.log('Facebook user is', resResult);
-
-      let res = {
-        user: {
-          displayName: resResult['name'] ? resResult['name'] : resResult['id'],
-          email: resResult['email']
-            ? resResult['email']
-            : resResult['id'] + '@email.com',
-          uid: resResult['id'],
-          dob: new Date(2003, 1, 1, 0, 0, 0, 0).toUTCString(),
-        },
-      };
-
-      console.log(res);
-      if (res) {
-        this.signUpwithSocial(res, 'fb');
-        // await Browser.open({ url: `https://dev-veenme.thesupportonline.net/testtoken/${token}` });
       }
     } catch (err) {
       console.error(err);
@@ -175,3 +120,7 @@ export class RegisterPage extends BasePage {
     });
   }
 }
+function loadUserData() {
+  throw new Error('Function not implemented.');
+}
+
