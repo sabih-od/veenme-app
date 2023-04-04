@@ -1,6 +1,9 @@
 <header [title]="'Home'"></header>
+<app-post></app-post>
 
 <ion-content>
+  <app-stories></app-stories>
+  <app-uploads></app-uploads>
   <div *ngIf="!isLoading">
     <home-page-post *ngFor="let item of list" [item]="item" (opengallery)="openGallery($event)"
       (itemLikeToggled)="itemLikeToggled(item)" (openComments)="openComments(item)"

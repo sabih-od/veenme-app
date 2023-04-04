@@ -1,4 +1,4 @@
-import { Component, Injector, OnInit } from '@angular/core';
+import { Component, Injector, OnInit, Input } from '@angular/core';
 import { FullSizeGalleryComponent } from 'src/app/components/full-size-gallery/full-size-gallery.component';
 import { BasePage } from '../../base-page/base-page';
 import { PlacesDetailsComponent } from '../places/places-details/places-details.component';
@@ -11,6 +11,7 @@ import { PeopleAreVeeningComponent } from './people-are-veening/people-are-veeni
   templateUrl: './home-page.page.html',
   styleUrls: ['./home-page.page.scss'],
 })
+
 export class HomePagePage extends BasePage implements OnInit {
   page = 1;
   list = [];

@@ -1,14 +1,12 @@
-// import { AccessToken } from './../../../../node_modules/@rdlabo/capacitor-facebook-login/dist/esm/definitions.d';
 import { Component, Injector } from '@angular/core';
 import { Browser } from '@capacitor/browser';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 import { StringsService } from 'src/app/services/basic/strings.service';
 import { BasePage } from '../base-page/base-page';
 import { LoginPage } from '../login/login.page';
 import { SignupPage } from '../signup/signup.page';
-import { HTTP } from '@awesome-cordova-plugins/http/ngx';
 
 import { GooglePlus } from '@awesome-cordova-plugins/google-plus/ngx';
-
 
 @Component({
   selector: 'app-register',
@@ -17,14 +15,63 @@ import { GooglePlus } from '@awesome-cordova-plugins/google-plus/ngx';
 })
 export class RegisterPage extends BasePage {
   // step = 1;
+  isLoggedIn = false;
+users = {
+    id: '',
+    name: '',
+    email: '',
+    picture: {
+        data: {
+            url: ''
+        }
+    }
+};
 
   constructor(
     injector: Injector,
-    private http: HTTP,
     private strings: StringsService,
-    private googlePlus: GooglePlus
+    private googlePlus: GooglePlus,
+    private fb: Facebook
   ) {
     super(injector);
+    fb.getLoginStatus()
+    .then(res => {
+      console.log(res.status);
+      if (res.status === 'connect') {
+        this.isLoggedIn = true;
+      } else {
+        this.isLoggedIn = false;
+      }
+    })
+    .catch(e => console.log(e));
+  }
+
+  fbLogin() {
+    this.fb.login(['public_profile', 'user_friends', 'email'])
+      .then(res => {
+        if (res.status === 'connected') {
+          this.isLoggedIn = true;
+          this.getUserDetail(res.authResponse.userID);
+        } else {
+          this.isLoggedIn = false;
+        }
+      })
+      .catch(e => console.log('Error logging into Facebook', e));
+  }
+  getUserDetail(userid: any) {
+    this.fb.api('/' + userid + '/?fields=id,email,name,picture', ['public_profile'])
+      .then(res => {
+        console.log(res);
+        this.users = res;
+      })
+      .catch(e => {
+        console.log(e);
+      });
+  }
+  logout() {
+    this.fb.logout()
+      .then( res => this.isLoggedIn = false)
+      .catch(e => console.log('Error logout from Facebook', e));
   }
 
 
@@ -52,6 +99,62 @@ export class RegisterPage extends BasePage {
       console.error(err);
     }
   }
+
+  // async loginWithFacebook() {
+  //   try {
+  //     const FACEBOOK_PERMISSIONS = [
+  //       'email',
+  //       'user_birthday',
+  //       'user_photos',
+  //       'user_gender',
+  //     ];
+
+  //     var accessToken = null;
+  //     var result = await FacebookLogin.getCurrentAccessToken();
+
+  //     console.log(result);
+
+  //     if (!result || !result.accessToken) {
+  //       result = await FacebookLogin.login({
+  //         permissions: FACEBOOK_PERMISSIONS,
+  //       });
+
+  //       if (result.accessToken) {
+  //         // Login successful.
+  //         console.log(`Facebook access token is ${result.accessToken.token}`);
+
+  //         accessToken = result.accessToken;
+  //       }
+  //     } else {
+  //       accessToken = result.accessToken;
+  //     }
+
+  //     const resResult = await FacebookLogin.getProfile({
+  //       fields: ['id', 'name', 'email', 'gender'],
+  //     });
+
+  //     console.log('Facebook user is', resResult);
+
+  //     let res = {
+  //       user: {
+  //         displayName: resResult['name'] ? resResult['name'] : resResult['id'],
+  //         email: resResult['email']
+  //           ? resResult['email']
+  //           : resResult['id'] + '@email.com',
+  //         uid: resResult['id'],
+  //         dob: new Date(2003, 1, 1, 0, 0, 0, 0).toUTCString(),
+  //       },
+  //     };
+
+  //     console.log(res);
+  //     if (res) {
+  //       this.signUpwithSocial(res, 'fb');
+  //       // await Browser.open({ url: `https://dev-veenme.thesupportonline.net/testtoken/${token}` });
+  //     }
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // }
 
   async openLogin() {
     const res = await this.modals.present(LoginPage);
@@ -120,7 +223,3 @@ export class RegisterPage extends BasePage {
     });
   }
 }
-function loadUserData() {
-  throw new Error('Function not implemented.');
-}
-

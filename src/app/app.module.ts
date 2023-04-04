@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { HTTP } from '@awesome-cordova-plugins/http/ngx';
-
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { Geolocation } from '@awesome-cordova-plugins/geolocation/ngx';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { Facebook } from '@ionic-native/facebook/ngx';
 import { UtilityService } from './services/utility.service';
 import { LoginPageModule } from './pages/login/login.module';
 import { SignupPageModule } from './pages/signup/signup.module';
@@ -47,9 +46,9 @@ import { File } from '@awesome-cordova-plugins/file/ngx';
     FormBuilder,
     UtilityService,
     WebView,
-    HTTP,
     InAppBrowser,
     UtilityService,
+    Facebook,
     Geolocation,
     LaunchNavigator,
     NativeGeocoder,
