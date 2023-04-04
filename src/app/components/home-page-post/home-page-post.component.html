@@ -34,32 +34,24 @@
     </div>
   </div>
   <ion-grid class="ion-margin-start section-box">
+    <div class="comment-border"></div>
     <ion-row class="row">
-      <div class="comment-border"></div>
       <ion-col size="2" class="col" (click)="itemLikeToggled?.emit()">
         <ion-icon
-          [name]="item?.is_like ? 'heart' : 'thumbs-up-outline'"
+          [name]="item?.is_like ? 'thumbs-up' : 'thumbs-up-outline'"
         ></ion-icon>
         <p>{{ item?.like_count }}</p>
       </ion-col>
-
-
-
-
-
-      <ion-col size="2" class="col" (click)="openComments?.emit()">
+      <ion-col size="2" class="col-2" (click)="openComments?.emit()">
         <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
         <p>{{ item?.comment_count }}</p>
       </ion-col>
-
-
-
-
-      <ion-col class="col">
-        <ion-icon name="arrow-redo-outline"></ion-icon>Share
+      <ion-col class="col-3">
+        <ion-icon name="arrow-redo-outline"></ion-icon>
       </ion-col>
-      <div class="comment-border"></div>
     </ion-row>
+
+    <div class="comment-border"></div>
 
     <!-- <ion-row class="row">
       <div class="comment-border"></div>
@@ -99,7 +91,7 @@
 </div> -->
 
   <div class="comment-box-main">
-    <div class="chat">
+    <!-- <div class="chat">
       <div class="side-img">
         <img src="../../../assets/girlimage.jpg" alt="" />
       </div>
@@ -113,8 +105,8 @@
       <span>Reply</span>
       <span>Share</span>
       <span>1d</span>
-    </div>
-
+    </div> -->
+    <!-- 
     <div class="comment-line">
       <div class="side-img">
         <img src="../../../assets/girlimage.jpg" alt="" />
@@ -122,16 +114,23 @@
       <div class="input">
         <input type="text" placeholder="What's on your mind?" />
         <div class="send-icon">
-          <!-- <ion-icon name="happy-outline"></ion-icon> -->
-          <ion-icon name="send-outline"></ion-icon>
+          <ion-icon name="happy-outline"></ion-icon>
+          <ion-icon
+            _ngcontent-bjv-c148=""
+            name="paper-plane-outline"
+            ng-reflect-name="paper-plane-outline"
+            role="img"
+            class="ios hydrated"
+            aria-label="paper plane outline"
+          ></ion-icon>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div class="viewmorecomments">
+    <!-- <div class="viewmorecomments">
       <p>view more comments</p>
       <img src="../../../assets/down-aero.png" alt="" />
-    </div>
-    <div class="viewbotmborder"></div>
+    </div> -->
+    <!-- <div class="viewbotmborder"></div> -->
   </div>
 </div>

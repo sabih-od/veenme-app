@@ -5,12 +5,10 @@
 }
 
 .create-story-main {
- //  width: 100%;
+  width: 100%;
+  height: auto;
   display: flex;
-  // justify-content: center;
-  // align-items: center;
   margin-top: -16px;
-
 }
 
 .create-story {
@@ -25,34 +23,32 @@
   margin-bottom: 19px;
   box-shadow: 0 0 5px 2px #e7ebef;
 
-  img{
+  img {
     height: 140px;
-    border-radius: 10px;
-    border-bottom: none;
-
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
   }
-  span{
+  span {
     font-size: 12px;
-    line-height: 35px
+    position: relative;
+    top: -9%;
   }
 }
 
-
 .button {
   height: 35px;
-  width: 9%;
+  width: 35px;
   border-radius: 50%;
   background-color: #78cbd0;
-  position: absolute;
-  top: 25%;
-  left: 15%;
+  position: relative;
+  top: -11%;
+  left: 32%;
   padding: 7px;
   img {
     height: 20px;
   }
-
 }
-.user-stories{
+.user-stories {
   background-image: url(../../../assets/user-strory.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,9 +70,9 @@
     position: absolute;
     top: 5%;
     left: 10%;
-    }
+  }
 
-  .circlle{
+  .circlle {
     height: 10px;
     width: 11px;
     background-color: #09b131;
@@ -85,21 +81,19 @@
     top: 75%;
     right: 8%;
   }
-  .side-aero{
-    height: 41px;
-    width: 44%;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 41%;
-    left:71%;
-    box-shadow: 0 0 0 1px #e7ebef;
-
-  }
-  img{
+}
+.side-aero {
+  height: 41px;
+  width: 45px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 19%;
+  left: 86%;
+  box-shadow: 0 0 0 1px #e7ebef;
+  img {
     height: 20px;
     width: 25px;
     margin: 11px;
   }
 }
-
