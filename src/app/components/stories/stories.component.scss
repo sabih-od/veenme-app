@@ -26,27 +26,31 @@
   box-shadow: 0 0 5px 2px #e7ebef;
 
   img{
-    height: 140px;
-    border-radius: 10px;
-    border-bottom: none;
+       height: 140px;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 
   }
   span{
-    font-size: 12px;
-    line-height: 35px
-  }
+   font-size: 12px;
+    line-height: -11px;
+    position: relative;
+    top: -8%;
+}
+
 }
 
 
 .button {
   height: 35px;
-  width: 9%;
-  border-radius: 50%;
-  background-color: #78cbd0;
-  position: absolute;
-  top: 25%;
-  left: 15%;
-  padding: 7px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: #78cbd0;
+    position: relative;
+    top: -11%;
+    left: 35%;
+    padding: 7px;
   img {
     height: 20px;
   }
@@ -85,21 +89,21 @@
     top: 75%;
     right: 8%;
   }
-  .side-aero{
-    height: 41px;
-    width: 44%;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: 41%;
-    left:71%;
-    box-shadow: 0 0 0 1px #e7ebef;
 
-  }
+}
+.side-aero{
+  height: 41px;
+  width: 44%;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 41%;
+  left:71%;
+  box-shadow: 0 0 0 1px #e7ebef;
   img{
     height: 20px;
     width: 25px;
     margin: 11px;
   }
-}
 
+}
