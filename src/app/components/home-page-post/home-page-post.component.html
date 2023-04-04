@@ -1,68 +1,90 @@
 <div class="post">
-<ion-item lines="none">
-  <ion-avatar (click)="openUserProfile?.emit()" class="ion-margin-end">
-    <img [src]="item?.user_profile_image" />
-  </ion-avatar>
-  <ion-label class="ion-text-wrap">
-    <div class="name-sec">
-      <h2>{{ item?.full_name }}</h2>
-      <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
-    </div>
-    <p>{{ item?.body }}</p>
-    <p style="color: var(--ion-color-primary)" (click)="openPlace?.emit()">
-      {{ item?.activity ?? item?.activity_title }} : {{ item?.location }}
-    </p>
-  </ion-label>
-</ion-item>
+  <ion-item lines="none">
+    <ion-avatar (click)="openUserProfile?.emit()" class="ion-margin-end">
+      <img [src]="item?.user_profile_image" />
+    </ion-avatar>
+    <ion-label class="ion-text-wrap">
+      <div class="name-sec">
+        <h2>{{ item?.full_name }}</h2>
+        <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+      </div>
+      <p>{{ item?.body }}</p>
+      <p style="color: var(--ion-color-primary)" (click)="openPlace?.emit()">
+        {{ item?.activity ?? item?.activity_title }} : {{ item?.location }}
+      </p>
+    </ion-label>
+  </ion-item>
 
-<div
-  (click)="
-    item?.files?.length > 3 ? opengallery?.emit(item?.files) : log(item?.files)
-  "
-  *ngIf="item?.files && item?.files?.length > 0"
->
-  <image-collage [images]="item?.files"> </image-collage>
-</div>
-<div class="text">
-<div class="likeby">
-  <p>like by amin khan</p>
-</div>
-<div class="comments">
-  <p>50 comments</p>
-</div>
-</div>
-<ion-grid class="ion-margin-start section-box">
-  <!-- <ion-row>
-    <ion-col size="2" (click)="itemLikeToggled?.emit()">
-      <ion-icon [name]="item?.is_like ? 'heart' : 'heart-outline'"></ion-icon>
-      <p>{{ item?.like_count }}</p>
-    </ion-col>
-    <ion-col size="2" (click)="openComments?.emit()">
-      <ion-icon name="chatbubble-outline"></ion-icon>
-      <p>{{ item?.comment_count }}</p>
-    </ion-col>
-    <ion-col>pic
-      <p>{{ item?.created | date: "shortTime" }}</p>
-    </ion-col>
-  </ion-row> -->
-  <ion-row class="row">
-    <div class="comment-border">
+  <div
+    (click)="
+      item?.files?.length > 3
+        ? opengallery?.emit(item?.files)
+        : log(item?.files)
+    "
+    *ngIf="item?.files && item?.files?.length > 0"
+  >
+    <image-collage [images]="item?.files"> </image-collage>
+  </div>
+  <div class="text">
+    <div class="likeby">
+      <p>like by amin khan</p>
     </div>
-        <ion-col class="col" >
-      <ion-icon name="thumbs-up-outline"></ion-icon>
+    <div class="comments">
+      <p>50 comments</p>
+    </div>
+  </div>
+  <ion-grid class="ion-margin-start section-box">
+    <ion-row class="row">
+      <div class="comment-border"></div>
+      <ion-col size="2" class="col" (click)="itemLikeToggled?.emit()">
+        <ion-icon
+          [name]="item?.is_like ? 'heart' : 'thumbs-up-outline'"
+        ></ion-icon>
+        <p>{{ item?.like_count }}</p>
+      </ion-col>
+
+
+
+
+
+      <ion-col size="2" class="col" (click)="openComments?.emit()">
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+        <p>{{ item?.comment_count }}</p>
+      </ion-col>
+
+
+
+
+      <ion-col class="col">
+        <ion-icon name="arrow-redo-outline"></ion-icon>Share
+      </ion-col>
+      <div class="comment-border"></div>
+    </ion-row>
+
+    <!-- <ion-row class="row">
+      <div class="comment-border"></div>
+      <ion-col class="col">
+        <ion-icon name="thumbs-up-outline"></ion-icon>
         Like
-    </ion-col>
-    <ion-col class="col">
-    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>comment
-    </ion-col>
-    <ion-col class="col"  >
-    <ion-icon name="arrow-redo-outline"></ion-icon>Share
-    </ion-col>
-    <div class="comment-border">
-    </div>
-  </ion-row>
-</ion-grid>
-<!-- <div class="comment-section">
+      </ion-col>
+
+
+
+
+      <ion-col class="col">
+        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>comment
+      </ion-col>
+
+
+
+
+      <ion-col class="col">
+        <ion-icon name="arrow-redo-outline"></ion-icon>Share
+      </ion-col>
+      <div class="comment-border"></div>
+    </ion-row> -->
+  </ion-grid>
+  <!-- <div class="comment-section">
   <div class="fcomment">
     <div> <ion-avatar (click)="openUserProfile?.emit()" class="ion-margin-end">
       <img [src]="item?.user_profile_image" />
@@ -76,49 +98,40 @@
   </div>
 </div> -->
 
-<div class="comment-box-main" >
-  <div class="chat">
-    <div   class="side-img">
-      <img src="../../../assets/girlimage.jpg" alt="">
+  <div class="comment-box-main">
+    <div class="chat">
+      <div class="side-img">
+        <img src="../../../assets/girlimage.jpg" alt="" />
+      </div>
+      <div class="user-text">
+        <p class="jhon-wrick">jhon wrick</p>
+        <p class="hi">hi i am fine are u finee</p>
+      </div>
     </div>
-    <div class="user-text">
-      <p class="jhon-wrick">jhon wrick</p>
-      <p class="hi">hi i am fine are u finee </p>
+    <div class="likereply">
+      <span>like</span>
+      <span>Reply</span>
+      <span>Share</span>
+      <span>1d</span>
     </div>
 
+    <div class="comment-line">
+      <div class="side-img">
+        <img src="../../../assets/girlimage.jpg" alt="" />
+      </div>
+      <div class="input">
+        <input type="text" placeholder="What's on your mind?" />
+        <div class="send-icon">
+          <!-- <ion-icon name="happy-outline"></ion-icon> -->
+          <ion-icon name="send-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="viewmorecomments">
+      <p>view more comments</p>
+      <img src="../../../assets/down-aero.png" alt="" />
+    </div>
+    <div class="viewbotmborder"></div>
   </div>
-  <div class="likereply">
-    <span>like</span>
-    <span>Reply</span>
-    <span>Share</span>
-    <span>1d</span>
-
-
-  </div>
-
-
-<div class="comment-line">
-<div   class="side-img">
-  <img src="../../../assets/girlimage.jpg" alt="">
-</div>
-<div class="input">
-<input type="text" placeholder="What's on your mind?" >
-<div class="send-icon">
-  <!-- <ion-icon name="happy-outline"></ion-icon> -->
-  <ion-icon name="send-outline"></ion-icon>
-
-</div>
-</div>
-</div>
-
-<div class="viewmorecomments">
-  <p>view more comments</p>
-  <img src="../../../assets/down-aero.png" alt="">
-
-
-
-</div>
-<div class="viewbotmborder">
-</div>
-</div>
 </div>
