@@ -9,8 +9,13 @@ import { NavService } from 'src/app/services/basic/nav.service';
 export class HeaderComponent implements OnInit {
   @Input() title = '';
   @Input() back = false;
+  menu: any;
 
   constructor(public nav: NavService) {}
 
   ngOnInit() {}
+  goTo(route) {
+    this.nav.setRoot(route);
+    this.menu.close();
+  }
 }

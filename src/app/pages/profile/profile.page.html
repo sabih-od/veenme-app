@@ -2,6 +2,7 @@
 
 <ion-content #content>
   <div #map id="map"></div>
+  <ion-button class="btn">VEEN NOW</ion-button>
   <ion-card style="margin-top: 0">
     <div *ngIf="!isLoading">
       <div class="main-div">
@@ -11,9 +12,9 @@
           >
           </ion-img>
         </ion-avatar>
-        <ion-text style="margin-top: -20px" class="ion-text-center">
-          <ion-title>{{profile.fname}}</ion-title>
-          <p style="margin-top: 10px">
+        <ion-title style="margin-top: 30PX;">{{profile.fname}}</ion-title>
+        <ion-text style="margin-top: 20px" class="ion-text-center">
+          <p style="margin-top: 30px">
             {{following_list?.length + ' Following '}} | {{follower_list?.length
             + ' Followers '}}
           </p>

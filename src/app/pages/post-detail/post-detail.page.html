@@ -1,6 +1,6 @@
 <header [title]="'Post Details'" [back]="true"></header>
 
-<ion-content>
+<ion-content >
   <div *ngIf="!isLoading">
     <home-page-post [item]="post" (opengallery)="openGallery($event)" (itemLikeToggled)="itemLikeToggled(item)"
       (openComments)="openComments(item)" (openUserProfile)="openUserProfile(item)">

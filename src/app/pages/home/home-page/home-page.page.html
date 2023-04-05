@@ -4,7 +4,7 @@
 <ion-content>
   <app-stories></app-stories>
   <app-uploads></app-uploads>
-  <div *ngIf="!isLoading">
+  <div *ngIf="!isLoading" >
     <home-page-post
       *ngFor="let item of list"
       [item]="item"

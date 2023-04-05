@@ -1,4 +1,4 @@
-<header [title]="'Notifications'"></header>
+<header [title]="'Notifications'" [back]="true"></header>
 
 <ion-content>
   <div class="spinner" *ngIf="isLoading">
@@ -34,22 +34,22 @@
         </ion-avatar>
 
         <ion-text (click)="showPost(item.post_detail)">
-          <p *ngIf="item.notification_type == 'like'">
+          <p *ngIf="item.notification_type === 'like'">
             {{item?.user?.fname + ' ' + 'Liked Your Comment' }}
           </p>
 
-          <ion-text *ngIf="item.notification_type == 'post'">
+          <ion-text *ngIf="item.notification_type === 'post'">
             <p> {{item?.user?.fname + ' ' + 'added post' }}</p>
             <p style="color: var(--ion-color-primary); margin-top:-15px">{{item?.text }}</p>
 
           </ion-text>
 
-          <p *ngIf="item.notification_type == 'comment'">
+          <p *ngIf="item.notification_type === 'comment'">
             {{item?.user?.fname + ' ' + 'added comment' }}
             <span class="highlighted"> {{item?.text}} </span>
           </p>
 
-          <p *ngIf="item.notification_type == 'reply'">
+          <p *ngIf="item.notification_type === 'reply'">
             {{item?.user?.fname + ' ' + 'added reply' }}
             <span class="highlighted"> {{item?.text}} </span>
           </p>
