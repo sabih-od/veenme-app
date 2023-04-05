@@ -1,7 +1,10 @@
 .menu-list {
+
   ion-title {
     text-align: left;
-    padding-left: 45px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 35px;
   }
 }
 
@@ -9,4 +12,27 @@
   font-size: 0.8rem;
   position: absolute;
   transform: translate(15px, -10px);
+}
+.header{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // flex-wrap: wrap;
+  position: relative;
+}
+.input{
+  border: none;
+  position: absolute;
+  height: 35px;
+  width: 220px;
+  margin-top: -40px;
+  font-size: 10PX;
+  padding-left: 20PX;
+  border-radius: 20px;
+  margin-left: 65px;
+  background-color: aliceblue;
+}
+.img{
+  margin-left: 20px;
 }

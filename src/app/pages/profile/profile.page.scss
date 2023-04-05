@@ -1,6 +1,6 @@
 .main-div {
   transform: translateY(-3.5rem);
-  height: 20vh;
+  height: 7vh;
 }
 
 .avatar-img {
@@ -8,7 +8,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 65px;
-  margin-bottom: 10px;
+  // margin-bottom: 10px;
 }
 
 #map {
@@ -30,4 +30,10 @@
   border: 1px solid #000;
   border-radius: 7px;
   padding: 0px 5px;
+}
+.btn{
+  width: 100%;
+  height: 5vh;
+  border-radius: 10px;
+  background-color: #77CBCE;
 }

@@ -1,0 +1,28 @@
+.header{
+  margin-left: -5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.profile{
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  border-radius: 50%;
+  background-color: #F3F6F8;
+  .icon{
+    width: 35px;
+    height: 35px;
+    color: #868686;
+  }
+  .icon-2{
+    width: 25px;
+    height: 25px;
+    color: #868686;
+  }
+}
