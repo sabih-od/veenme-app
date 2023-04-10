@@ -1,20 +1,21 @@
-<ion-card>
-  <ion-img *ngIf="item.files.length > 0" [src]="item.files[0].filepath"></ion-img>
-
+<ion-card   style="height: 80px; display: flex;">
 
   <ion-card-header>
-    <ion-card-subtitle>
+    <ion-card-subtitle style="font-size: 8px;">
       {{item.created}}
     </ion-card-subtitle>
 
-    <ion-card-title>
+    <ion-card-title style="font-size: 11px;">
       {{item.location}}
     </ion-card-title>
 
   </ion-card-header>
 
 
-  <ion-card-content>
-    {{item.body}}
+  <ion-card-content  style="font-size: 8px;">
+    <!-- {{item.body}} -->
+    <ion-img *ngIf="item.files.length > 0" [src]="item.files[0].filepath" style="height: 70px; float: left;" ></ion-img>
   </ion-card-content>
+  
+
 </ion-card>
