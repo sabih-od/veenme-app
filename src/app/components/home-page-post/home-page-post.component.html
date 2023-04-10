@@ -36,7 +36,7 @@
   <ion-grid class="ion-margin-start section-box">
     <div class="comment-border"></div>
     <ion-row class="row">
-      <ion-col size="2" class="col" (click)="itemLikeToggled?.emit()">
+      <ion-col size="2" class="col" (click)="itemLikeToggled?.r()">
         <ion-icon
           [name]="item?.is_like ? 'thumbs-up' : 'thumbs-up-outline'"
         ></ion-icon>
@@ -106,7 +106,7 @@
       <span>Share</span>
       <span>1d</span>
     </div> -->
-    <!-- 
+    <!--
     <div class="comment-line">
       <div class="side-img">
         <img src="../../../assets/girlimage.jpg" alt="" />
