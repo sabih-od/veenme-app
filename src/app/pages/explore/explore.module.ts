@@ -8,7 +8,7 @@ import { ExplorePageRoutingModule } from './explore-routing.module';
 
 import { ExplorePage } from './explore.page';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { FeaturesComponent } from 'src/app/components/features/features.component';
+import { FeaturesComponent } from 'src/app/pages/explore/features/features.component';
 
 @NgModule({
   imports: [
