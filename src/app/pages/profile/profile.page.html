@@ -2,8 +2,49 @@
 
 <ion-content #content>
   <div #map id="map"></div>
+  <div class="veennow">
+    <button>
+      veen now
+    </button>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="2">
+        <div class="profileimg"(click)="changeProfile()" >
+         <img src="../../../assets/girlimage.jpg" alt="">
+        </div>
+      </ion-col>
+    <ion-col size="5">
+      <div class="tony">
+        <span>Tony shark</span>
+    </div>
+    <div class="followers">
+      <span>1 following</span>
+      <div class="side-line">
+      </div>
+      <span>1 followers</span>
+    </div>
+  </ion-col>
+
+  <ion-col size="1">
+    <div class="line">
+
+    </div>
+  </ion-col>
+
+    <ion-col size="4">
+      <div class="tony">
+        <span>Info</span>
+        <p>how are u</p>
+    </div>
+
+    </ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-card style="margin-top: 0">
     <div *ngIf="!isLoading">
+
       <div class="main-div">
         <ion-avatar (click)="changeProfile()" class="avatar-img">
           <ion-img
@@ -29,66 +70,66 @@
       </div>
 
       <ion-row>
-          <ion-col size="6">
-            <ion-item lines="none">
-              <p slot="start" class="block-heading">Interest</p>
-              <ion-button
-                [hidden]="showInterestTextField"
-                *ngIf="isOwnProfile"
-                slot="end"
-                fill="clear"
-                (click)="toggleTextField('interest')">
-                <ion-icon name="create-outline"></ion-icon>
-              </ion-button>
-            </ion-item>
-            <ion-item lines="none">
-              <p *ngIf="!showInterestTextField" style="margin: 5px 0">
-                {{profile.interset}}
-              </p>
+        <ion-col size="6">
+          <ion-item lines="none">
+            <p slot="start" class="block-heading">Interest</p>
+            <ion-button
+              [hidden]="showInterestTextField"
+              *ngIf="isOwnProfile"
+              slot="end"
+              fill="clear"
+              (click)="toggleTextField('interest')">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item lines="none">
+            <p *ngIf="!showInterestTextField" style="margin: 5px 0">
+              {{profile.interset}}
+            </p>
 
-              <div *ngIf="showInterestTextField">
-                <ion-textarea
-                  class="text-box-style"
-                  [(ngModel)]="profile.interset">
-                </ion-textarea>
-                <ion-button (click)="save('interest')" fill="clear">
-                  <ion-icon name="save-outline"></ion-icon>
-                </ion-button>
-                <ion-button (click)="toggleTextField('interest')" fill="clear">
-                  <ion-icon name="close-outline"></ion-icon>
-                </ion-button>
-              </div>
-            </ion-item>
-          </ion-col>
-
-          <ion-col size="6">
-            <ion-item lines="none">
-              <p slot="start" class="block-heading">Info</p>
-              <ion-button
-                [hidden]="showInfoTextField"
-                *ngIf="isOwnProfile"
-                slot="end"
-                fill="clear"
-                (click)="toggleTextField('info')">
-                <ion-icon name="create-outline"></ion-icon>
+            <div *ngIf="showInterestTextField">
+              <ion-textarea
+                class="text-box-style"
+                [(ngModel)]="profile.interset">
+              </ion-textarea>
+              <ion-button (click)="save('interest')" fill="clear">
+                <ion-icon name="save-outline"></ion-icon>
               </ion-button>
-            </ion-item>
-            <ion-item lines="none">
-              <p *ngIf="!showInfoTextField" style="margin: 5px 0">
-                {{profile.info}}
-              </p>
-              <div *ngIf="showInfoTextField">
-                <ion-textarea class="text-box-style" [(ngModel)]="profile.info">
-                </ion-textarea>
-                <ion-button (click)="save('info')" fill="clear">
-                  <ion-icon name="save-outline"></ion-icon>
-                </ion-button>
-                <ion-button (click)="toggleTextField('info')" fill="clear">
-                  <ion-icon name="close-outline"></ion-icon>
-                </ion-button>
-              </div>
-            </ion-item>
-          </ion-col>
+              <ion-button (click)="toggleTextField('interest')" fill="clear">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-item>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-item lines="none">
+            <p slot="start" class="block-heading">Info</p>
+            <ion-button
+              [hidden]="showInfoTextField"
+              *ngIf="isOwnProfile"
+              slot="end"
+              fill="clear"
+              (click)="toggleTextField('info')">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-item lines="none">
+            <p *ngIf="!showInfoTextField" style="margin: 5px 0">
+              {{profile.info}}
+            </p>
+            <div *ngIf="showInfoTextField">
+              <ion-textarea class="text-box-style" [(ngModel)]="profile.info">
+              </ion-textarea>
+              <ion-button (click)="save('info')" fill="clear">
+                <ion-icon name="save-outline"></ion-icon>
+              </ion-button>
+              <ion-button (click)="toggleTextField('info')" fill="clear">
+                <ion-icon name="close-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-item>
+        </ion-col>
       </ion-row>
     </div>
   </ion-card>
