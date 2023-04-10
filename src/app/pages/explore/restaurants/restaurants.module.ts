@@ -11,7 +11,7 @@ import { RestaurantsPage } from './restaurants.page';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { ExplorePageModule } from '../explore.module';
 import { StoriesModule } from 'src/app/components/stories/stories.module';
-import { FeaturesModule } from 'src/app/components/features/features.module';
+import { FeaturesModule } from 'src/app/pages/explore/features/features.module';
 
 @NgModule({
   imports: [
